@@ -1,13 +1,12 @@
+"use strict";
+
 const context = require('cls-hooked');
 const uuid = require('uuid').v4;
 
 const  namespace = context.createNamespace(uuid());
 
 const middleware = (handler) => {
-  return async (ctx) => {
-    await new Promise((resolve) => namespace.runPromise(resolve));
-    return await handler(ctx);
-  };
+  return async (ctx) => namespace.runAndReturn(() => handler(ctx));
 };
 
 const set = (key,  value) => {
@@ -26,5 +25,8 @@ module.exports = {
   namespace,
   set,
   get,
-  middleware
+  middleware: {
+    name: "CLS",
+    localAction: middleware
+  }
 };
