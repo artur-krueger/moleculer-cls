@@ -23,10 +23,10 @@
   },
   "homepage": "https://github.com/cupsadarius/moleculer-cls#readme",
   "peerDependencies": {
-    "moleculer": "^0.13.x"
+    "moleculer": "^0.14.x"
   },
   "engines": {
-    "node": "9"
+    "node": ">=9"
   },
   "dependencies": {
     "cls-hooked": "^4.2.2",
