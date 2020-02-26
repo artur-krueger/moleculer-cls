@@ -21,10 +21,15 @@ const get = (key) => {
   }
 };
 
+const ns = () => {
+  return !!(namespace && namespace.active);
+};
+
 module.exports = {
   namespace,
   set,
   get,
+  ns,
   middleware: {
     name: "CLS",
     localAction: middleware
